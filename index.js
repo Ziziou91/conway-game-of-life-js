@@ -8,7 +8,7 @@ const generateRandom2DArray = (cols, rows) => {
   );
 };
 
-const drawGrid = (cols, rows, grid) => {
+const drawGrid = (cols, rows, grid, rate) => {
   ctx.clearRect(0, 0, cols, rows);
   for (let i = 0; i < cols; i++) {
     for (let j = 0; j < rows; j++) {
@@ -20,7 +20,7 @@ const drawGrid = (cols, rows, grid) => {
   // controls the speed the grid is updated
   setTimeout(function() {
     update(cols, rows, grid);
-  }, 7);
+  }, rate);
 };
 
 const update = (cols, rows, grid) => {
@@ -58,9 +58,9 @@ const update = (cols, rows, grid) => {
   drawGrid(cols, rows, grid);
 };
 
-const seed = (cols, rows) => {
+const seed = (cols, rows, rate) => {
   let grid = generateRandom2DArray(cols, rows);
 
-  drawGrid(cols, rows, grid);
+  drawGrid(cols, rows, grid, rate);
 };
-seed(600, 600);
+seed(600, 600, 7);
